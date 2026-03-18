@@ -9,13 +9,14 @@ class HomeBookModel extends Equatable {
   final String? image;
   final List<Author>? authors;
   final Rating? rating;
-
+  final num? publishDate;
   const HomeBookModel({
     this.id,
     this.title,
     this.image,
     this.authors,
     this.rating,
+    this.publishDate,
   });
 
   factory HomeBookModel.fromJson(Map<String, dynamic> json) => HomeBookModel(
@@ -28,6 +29,7 @@ class HomeBookModel extends Equatable {
     rating: json['rating'] == null
         ? null
         : Rating.fromJson(json['rating'] as Map<String, dynamic>),
+    publishDate: json['publish_date'] as num,
   );
 
   Map<String, dynamic> toJson() => {
