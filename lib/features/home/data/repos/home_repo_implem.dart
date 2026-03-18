@@ -1,4 +1,5 @@
 import 'package:test2/core/network/api_service.dart';
+import 'package:test2/core/network/dio_client.dart';
 import 'package:test2/core/utils/end_points.dart';
 import 'package:test2/features/home/data/models/home_book_model/home_book_model.dart';
 import 'package:test2/features/home/data/repos/home_repo.dart';
@@ -6,7 +7,7 @@ import 'package:test2/features/home/data/repos/home_repo.dart';
 class HomeRepoImplem implements HomeRepo {
   final ApiService apiService;
 
-  HomeRepoImplem({required this.apiService});
+  HomeRepoImplem(DioClient dioClient, {required this.apiService});
   @override
   Future<List<HomeBookModel>> getFeaturedBooks() async {
     final respone = await apiService.get(endPoint: EndPoints.featuredEndPoint);
