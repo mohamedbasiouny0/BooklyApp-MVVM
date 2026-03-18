@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:test2/core/utils/styles.dart';
 import 'package:test2/features/home/presentation/views/book_details_widgets/widgets/book_details_section.dart';
-import 'package:test2/features/home/presentation/views/home_view_widgets/widgets/book_image.dart';
 import 'similar_books_list_view.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
@@ -33,4 +32,3 @@ class BookDetailsViewBody extends StatelessWidget {
     );
   }
 }
-

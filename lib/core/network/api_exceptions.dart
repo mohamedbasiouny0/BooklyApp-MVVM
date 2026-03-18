@@ -35,7 +35,7 @@ class ApiExceptions {
         } else {
           return ApiError(
             errMessage: 'Unexpected error occurred',
-            statusCode: data!.statusCode,
+            statusCode: data.statusCode,
           );
         }
 

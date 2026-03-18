@@ -7,6 +7,7 @@ class EndPoints {
   static String getBookInfoEndPoint({required int id}) {
     return '$id?api-key=$_apiKey';
   }
+
   static const String searchEndPoint = 'search-books?&api-key=$_apiKey&query=';
   static String similarEndPoint({required int id}) {
     return '$id/similar?number=10&api-key=$_apiKey';
