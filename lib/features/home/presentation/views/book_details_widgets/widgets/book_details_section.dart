@@ -4,7 +4,7 @@ import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:test2/core/utils/styles.dart';
 import 'package:test2/features/home/presentation/manager/get_book_information_cubit/get_book_information_cubit.dart';
-import 'package:test2/features/home/presentation/views/home_view_widgets/widgets/failure_widget.dart';
+import 'package:test2/core/utils/failure_widget.dart';
 
 import '../../home_view_widgets/widgets/book_image.dart';
 import '../../home_view_widgets/widgets/book_rating.dart';
@@ -53,13 +53,13 @@ class _BookDetailsSectionState extends State<BookDetailsSection> {
                   crossAxisAlignment: .stretch,
                   children: [
                     Text(
-                      'Publish Date: ${state.bookDetailsModel.publishDate}',
+                      'Publish Date by year: ${state.bookDetailsModel.publishDate?.round()}',
                       style: Styles.style16.copyWith(
                         color: Colors.grey.shade400,
                       ),
                     ),
                     Text(
-                      'Pages count: ${state.bookDetailsModel.numberOfPages}',
+                      'Pages count: ${state.bookDetailsModel.numberOfPages?.round()}',
                       style: Styles.style16.copyWith(
                         color: Colors.grey.shade400,
                       ),

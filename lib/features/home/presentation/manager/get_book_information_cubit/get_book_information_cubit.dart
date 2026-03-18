@@ -7,15 +7,15 @@ import 'package:test2/features/home/data/repos/book_details_repo/book_details_re
 part 'get_book_information_state.dart';
 
 class GetBookInformationCubit extends Cubit<GetBookInformationState> {
-  GetBookInformationCubit({required this.bookDetilasModel})
+  GetBookInformationCubit({required this.bookDetilasRepo})
     : super(GetBookInformationInitial());
 
-  final BookDetailsRepo bookDetilasModel;
+  final BookDetailsRepo bookDetilasRepo;
 
   Future<void> getBookDetailsFunction({required int id}) async {
     emit(GetBookInformationLoading());
     try {
-      final BookDetailsModel response = await bookDetilasModel.getBookDetails(
+      final BookDetailsModel response = await bookDetilasRepo.getBookDetails(
         id: id,
       );
       emit(GetBookInformationSuccess(bookDetailsModel: response));

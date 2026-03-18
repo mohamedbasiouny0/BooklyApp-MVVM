@@ -27,7 +27,7 @@ class ApiExceptions {
         print('Code is: ${error.response!.statusCode}');
 
         final data = error.response;
-        if (error is Map<String, dynamic>) {
+        if (error is Map<String, dynamic> || data!.statusCode == 402) {
           return ApiError(
             errMessage: data!.data['message'],
             statusCode: data.statusCode,

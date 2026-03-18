@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:test2/core/utils/app_router.dart';
 import 'package:test2/features/home/presentation/manager/featured_books_cubit/featured_books_cubit.dart';
-import 'package:test2/features/home/presentation/views/home_view_widgets/widgets/failure_widget.dart';
+import 'package:test2/core/utils/failure_widget.dart';
 
 import 'book_image.dart';
 
