@@ -23,8 +23,8 @@ class ApiExceptions {
         return ApiError(errMessage: "No internet connection");
 
       case DioExceptionType.badResponse:
-        print('Data is:${error.response!.data}');
-        print('Code is:${error.response!.statusCode}');
+        print('Data is: ${error.response!.data}');
+        print('Code is: ${error.response!.statusCode}');
 
         final data = error.response;
         if (error is Map<String, dynamic>) {

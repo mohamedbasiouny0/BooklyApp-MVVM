@@ -24,7 +24,7 @@ class _BookDetailsSectonState extends State<BookDetailsSecton> {
         children: [
           SizedBox(
             width: MediaQuery.of(context).size.width * 0.49,
-            child: BookImage(),
+            child: BookImage(imagePath: ''),
           ),
           Gap(20),
           Text(

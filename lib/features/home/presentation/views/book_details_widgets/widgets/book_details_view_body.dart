@@ -33,7 +33,7 @@ class BookDetailsViewBody extends StatelessWidget {
               itemBuilder: (BuildContext context, int index) {
                 return Padding(
                   padding: .symmetric(horizontal: 8),
-                  child: BookImage(),
+                  child: BookImage(imagePath: ''),
                 );
               },
             ),

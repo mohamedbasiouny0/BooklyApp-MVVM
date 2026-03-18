@@ -20,7 +20,7 @@ class NewestItem extends StatelessWidget {
       ),
       child: Row(
         children: [
-          BookImage(),
+          BookImage(imagePath: ''),
           Gap(16),
           Expanded(
             child: Column(

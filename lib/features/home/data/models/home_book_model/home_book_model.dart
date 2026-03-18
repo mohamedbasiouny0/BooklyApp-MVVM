@@ -29,7 +29,9 @@ class HomeBookModel extends Equatable {
     rating: json['rating'] == null
         ? null
         : Rating.fromJson(json['rating'] as Map<String, dynamic>),
-    publishDate: json['publish_date'] as num,
+    publishDate: json['publish_date'] == null
+        ? null
+        : json['publish_date'] as num,
   );
 
   Map<String, dynamic> toJson() => {
