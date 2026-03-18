@@ -40,6 +40,7 @@ class _BookDetailsSectonState extends State<BookDetailsSecton> {
           ),
           Gap(5),
           BookRating(mainAxisAlignment: .center),
+          Gap(10),
           Column(
             crossAxisAlignment: .stretch,
             children: [
