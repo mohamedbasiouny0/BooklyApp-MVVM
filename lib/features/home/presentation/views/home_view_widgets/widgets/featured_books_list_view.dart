@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:test2/core/utils/app_router.dart';
 
 import 'book_image.dart';
 
@@ -14,7 +16,10 @@ class FeaturedBooksListView extends StatelessWidget {
         itemCount: 5,
         itemBuilder: (context, index) => Padding(
           padding: const .symmetric(horizontal: 8),
-          child: BookImage(),
+          child: GestureDetector(
+            onTap: () => context.push(AppRouter.bookDetailsViewPath),
+            child: BookImage(),
+          ),
         ),
       ),
     );
