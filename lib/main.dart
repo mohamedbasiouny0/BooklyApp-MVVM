@@ -28,7 +28,7 @@ class Bookly extends StatelessWidget {
               getIt<DioClient>(),
               apiService: ApiService(dioClient: getIt<DioClient>()),
             ),
-          ),
+          )..getFeaturedBooksFunction(),
         ),
         BlocProvider(
           create: (context) => NewestBooksCubit(
@@ -36,7 +36,7 @@ class Bookly extends StatelessWidget {
               getIt<DioClient>(),
               apiService: ApiService(dioClient: getIt<DioClient>()),
             ),
-          ),
+          )..getNewestBooksFunction(),
         ),
       ],
       child: MaterialApp.router(
