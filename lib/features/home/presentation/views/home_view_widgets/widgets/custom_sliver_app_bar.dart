@@ -1,7 +1,7 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:test2/core/utils/app_colors.dart';
 import 'package:test2/core/utils/assets.dart';
 
 class CustomSliverAppBar extends StatelessWidget {
@@ -14,8 +14,11 @@ class CustomSliverAppBar extends StatelessWidget {
         padding: const .only(left: 16),
         child: SvgPicture.asset(Assets.logo),
       ),
+      pinned: true,
       leadingWidth: 90,
-      backgroundColor: Colors.transparent,
+      backgroundColor: AppColors.pimaryColor,
+      surfaceTintColor: Colors.transparent,
+      toolbarHeight: 70,
       actions: [
         Padding(
           padding: const .only(right: 8),

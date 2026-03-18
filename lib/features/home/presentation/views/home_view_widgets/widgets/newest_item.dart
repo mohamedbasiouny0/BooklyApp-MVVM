@@ -11,7 +11,7 @@ class NewestItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: .only(left: 16, right: 16),
+      margin: .only(left: 16, right: 16, bottom: 16),
       height: 105 * 1.2,
       decoration: BoxDecoration(
         color: Colors.white.withAlpha(39),

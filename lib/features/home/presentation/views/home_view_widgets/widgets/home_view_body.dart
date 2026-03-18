@@ -4,7 +4,7 @@ import 'package:gap/gap.dart';
 import 'package:test2/core/utils/styles.dart';
 import 'custom_sliver_app_bar.dart';
 import 'featured_books_list_view.dart';
-import 'newest_item.dart';
+import 'newest_books_list_view.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -28,7 +28,7 @@ class HomeViewBody extends StatelessWidget {
             ),
           ),
         ),
-        SliverToBoxAdapter(child: NewestItem()),
+        NewestBooksListView(),
       ],
     );
   }
