@@ -42,7 +42,7 @@ class NewestItem extends StatelessWidget {
                 SizedBox(
                   width: MediaQuery.of(context).size.width * 0.7,
                   child: Text(
-                    bookModel.authors?[0].name ?? 'No author founded',
+                    bookModel.authors?[0].name ?? 'No author found',
                     overflow: .ellipsis,
                     maxLines: 1,
                     style: Styles.style14.copyWith(color: Colors.amber),
