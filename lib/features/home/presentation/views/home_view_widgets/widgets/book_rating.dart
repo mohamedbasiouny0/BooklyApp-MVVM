@@ -3,10 +3,14 @@ import 'package:gap/gap.dart';
 import 'package:test2/core/utils/styles.dart';
 
 class BookRating extends StatelessWidget {
-  const BookRating({super.key, required this.mainAxisAlignment});
+  const BookRating({
+    super.key,
+    required this.mainAxisAlignment,
+    required this.rating,
+  });
 
   final MainAxisAlignment mainAxisAlignment;
-
+  final double rating;
   @override
   Widget build(BuildContext context) {
     return Row(

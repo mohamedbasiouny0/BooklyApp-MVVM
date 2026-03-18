@@ -39,7 +39,7 @@ class _BookDetailsSectonState extends State<BookDetailsSecton> {
             style: Styles.style18.copyWith(color: Colors.amber),
           ),
           Gap(5),
-          BookRating(mainAxisAlignment: .center),
+          BookRating(mainAxisAlignment: .center, rating: 0),
           Gap(10),
           Column(
             crossAxisAlignment: .stretch,

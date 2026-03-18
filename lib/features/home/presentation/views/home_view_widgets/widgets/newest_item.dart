@@ -2,12 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:test2/core/utils/styles.dart';
+import 'package:test2/features/home/data/models/home_book_model/home_book_model.dart';
 
 import 'book_image.dart';
 import 'book_rating.dart';
 
 class NewestItem extends StatelessWidget {
-  const NewestItem({super.key});
+  const NewestItem({super.key, required this.bookModel});
+
+  final HomeBookModel bookModel;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +23,7 @@ class NewestItem extends StatelessWidget {
       ),
       child: Row(
         children: [
-          BookImage(imagePath: ''),
+          BookImage(imagePath: bookModel.image ?? ''),
           Gap(16),
           Expanded(
             child: Column(
@@ -29,7 +32,7 @@ class NewestItem extends StatelessWidget {
                   margin: .only(top: 4),
                   width: MediaQuery.of(context).size.width * 0.7,
                   child: Text(
-                    'Harry Potter and the Goblet of Fire',
+                    bookModel.title!,
                     overflow: .ellipsis,
                     maxLines: 2,
                     style: GoogleFonts.inknutAntiqua().copyWith(fontSize: 20),
@@ -39,14 +42,17 @@ class NewestItem extends StatelessWidget {
                 SizedBox(
                   width: MediaQuery.of(context).size.width * 0.7,
                   child: Text(
-                    'J.K. Rowling',
+                    bookModel.authors?[0].name ?? 'No author founded',
                     overflow: .ellipsis,
                     maxLines: 1,
                     style: Styles.style14.copyWith(color: Colors.amber),
                   ),
                 ),
                 Spacer(),
-                BookRating(mainAxisAlignment: .start),
+                BookRating(
+                  mainAxisAlignment: .start,
+                  rating: bookModel.rating?.average ?? 0,
+                ),
                 Gap(4),
               ],
             ),
