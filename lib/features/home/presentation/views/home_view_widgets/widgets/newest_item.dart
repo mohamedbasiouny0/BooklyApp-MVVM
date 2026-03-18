@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:test2/core/utils/styles.dart';
 
 import 'book_image.dart';
+import 'book_rating.dart';
 
 class NewestItem extends StatelessWidget {
   const NewestItem({super.key});
@@ -44,20 +45,8 @@ class NewestItem extends StatelessWidget {
                     style: Styles.style14.copyWith(color: Colors.amber),
                   ),
                 ),
-
                 Spacer(),
-
-                Row(
-                  children: [
-                    Icon(Icons.star_rounded, color: Colors.amber),
-                    Gap(4),
-                    Text(
-                      '4.8',
-                      style: Styles.style16.copyWith(color: Colors.amber),
-                    ),
-                    Spacer(),
-                  ],
-                ),
+                BookRating(mainAxisAlignment: .start),
                 Gap(4),
               ],
             ),

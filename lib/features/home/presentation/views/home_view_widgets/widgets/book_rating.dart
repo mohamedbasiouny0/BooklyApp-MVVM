@@ -1,0 +1,21 @@
+import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
+import 'package:test2/core/utils/styles.dart';
+
+class BookRating extends StatelessWidget {
+  const BookRating({super.key, required this.mainAxisAlignment});
+
+  final MainAxisAlignment mainAxisAlignment;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: mainAxisAlignment,
+      children: [
+        Icon(Icons.star_rounded, color: Colors.amber),
+        Gap(4),
+        Text('4.8', style: Styles.style16.copyWith(color: Colors.amber)),
+      ],
+    );
+  }
+}
