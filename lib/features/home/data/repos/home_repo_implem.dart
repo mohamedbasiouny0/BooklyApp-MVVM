@@ -4,7 +4,6 @@ import 'package:test2/features/home/data/models/home_book_model/home_book_model.
 import 'package:test2/features/home/data/repos/home_repo.dart';
 
 class HomeRepoImplem implements HomeRepo {
-  @override
   final ApiService apiService;
 
   HomeRepoImplem({required this.apiService});
