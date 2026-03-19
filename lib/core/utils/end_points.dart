@@ -1,5 +1,5 @@
 class EndPoints {
-  static const String _apiKey = '5f666f0f56b8471c9e133ad0d204cae8';
+  static const String _apiKey = 'd25739486b464e1281669525f6015afd';
   static const String featuredEndPoint =
       'search-books?number=100&query=programming&api-key=$_apiKey';
   static const String newestEndPoint =

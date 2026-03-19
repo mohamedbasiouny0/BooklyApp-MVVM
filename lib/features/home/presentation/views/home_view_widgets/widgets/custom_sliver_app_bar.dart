@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:test2/core/utils/app_colors.dart';
+import 'package:test2/core/utils/app_router.dart';
 import 'package:test2/core/utils/assets.dart';
 
 class CustomSliverAppBar extends StatelessWidget {
@@ -23,7 +25,9 @@ class CustomSliverAppBar extends StatelessWidget {
         Padding(
           padding: const .only(right: 8),
           child: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              context.push(AppRouter.searchViewPath);
+            },
             icon: Icon(CupertinoIcons.search),
           ),
         ),
