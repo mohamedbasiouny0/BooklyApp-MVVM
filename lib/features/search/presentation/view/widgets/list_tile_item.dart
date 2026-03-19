@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:test2/core/utils/app_router.dart';
 import 'package:test2/features/home/data/models/general_book_model/general_book_model.dart';
 import 'package:test2/features/home/presentation/views/home_view_widgets/widgets/book_image.dart';
 import 'package:test2/features/home/presentation/views/home_view_widgets/widgets/book_rating.dart';
@@ -11,7 +13,9 @@ class ListTileItem extends StatelessWidget {
     return Column(
       children: [
         ListTile(
-          onTap: () {},
+          onTap: () {
+            context.push(AppRouter.bookDetailsViewPath, extra: model.id);
+          },
           title: Text(model.title!),
           subtitle: Text(model.authors?[0].name ?? 'No author found'),
           leading: BookImage(
