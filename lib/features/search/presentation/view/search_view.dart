@@ -13,7 +13,10 @@ class SearchView extends StatelessWidget {
     return BlocProvider(
       create: (context) =>
           SearchBooksCubit(searchRepo: getIt<SearchRepoImplem>()),
-      child: Scaffold(body: SearchViewBody()),
+      child: GestureDetector(
+        onTap: FocusScope.of(context).unfocus,
+        child: Scaffold(body: SearchViewBody()),
+      ),
     );
   }
 }
