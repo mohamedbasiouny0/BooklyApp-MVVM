@@ -8,7 +8,10 @@ class EndPoints {
     return '$id?number=100&api-key=$_apiKey';
   }
 
-  static const String searchEndPoint = 'search-books?&api-key=$_apiKey&query=';
+  static String searchEndPoint({required String q}) {
+    return 'search-books?&api-key=$_apiKey&query=$q';
+  }
+
   static String similarEndPoint({required int id}) {
     return '$id/similar?number=10&api-key=$_apiKey';
   }

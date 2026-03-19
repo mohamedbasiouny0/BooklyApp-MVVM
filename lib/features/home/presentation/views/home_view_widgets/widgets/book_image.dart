@@ -3,8 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class BookImage extends StatelessWidget {
-  const BookImage({super.key, required this.imagePath});
-
+  const BookImage({super.key, required this.imagePath, this.borderRadius});
+  final BorderRadius? borderRadius;
   final String imagePath;
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class BookImage extends StatelessWidget {
         clipBehavior: .antiAlias,
         decoration: BoxDecoration(
           color: Colors.blueGrey,
-          borderRadius: .circular(20),
+          borderRadius: borderRadius ?? .circular(20),
         ),
         child: CachedNetworkImage(
           imageUrl: imagePath,

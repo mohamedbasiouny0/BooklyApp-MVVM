@@ -1,7 +1,7 @@
 import 'package:test2/core/network/api_service.dart';
 import 'package:test2/core/network/dio_client.dart';
 import 'package:test2/core/utils/end_points.dart';
-import 'package:test2/features/home/data/models/home_book_model/home_book_model.dart';
+import 'package:test2/features/home/data/models/general_book_model/general_book_model.dart';
 import 'package:test2/features/home/data/repos/home_repo/home_repo.dart';
 
 class HomeRepoImplem implements HomeRepo {
@@ -9,25 +9,25 @@ class HomeRepoImplem implements HomeRepo {
 
   HomeRepoImplem(DioClient dioClient, {required this.apiService});
   @override
-  Future<List<HomeBookModel>> getFeaturedBooks() async {
+  Future<List<GeneralBookModel>> getFeaturedBooks() async {
     final respone = await apiService.get(endPoint: EndPoints.featuredEndPoint);
 
     var books = respone['books'];
-    List<HomeBookModel> modelsList = [];
+    List<GeneralBookModel> modelsList = [];
     for (var element in books) {
-      modelsList.add(HomeBookModel.fromJson(element[0]));
+      modelsList.add(GeneralBookModel.fromJson(element[0]));
     }
     return modelsList;
   }
 
   @override
-  Future<List<HomeBookModel>> getNewestBooks() async {
+  Future<List<GeneralBookModel>> getNewestBooks() async {
     final response = await apiService.get(endPoint: EndPoints.newestEndPoint);
 
     var books = response['books'];
-    List<HomeBookModel> modelsList = [];
+    List<GeneralBookModel> modelsList = [];
     for (var element in books) {
-      modelsList.add(HomeBookModel.fromJson(element[0]));
+      modelsList.add(GeneralBookModel.fromJson(element[0]));
     }
     return modelsList;
   }

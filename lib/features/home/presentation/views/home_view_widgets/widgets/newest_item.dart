@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:test2/core/utils/styles.dart';
-import 'package:test2/features/home/data/models/home_book_model/home_book_model.dart';
+import 'package:test2/features/home/data/models/general_book_model/general_book_model.dart';
 
 import 'book_image.dart';
 import 'book_rating.dart';
@@ -10,7 +10,7 @@ import 'book_rating.dart';
 class NewestItem extends StatelessWidget {
   const NewestItem({super.key, required this.bookModel});
 
-  final HomeBookModel bookModel;
+  final GeneralBookModel bookModel;
 
   @override
   Widget build(BuildContext context) {
