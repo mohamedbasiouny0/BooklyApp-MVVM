@@ -1,20 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:test2/features/home/data/models/general_book_model/general_book_model.dart';
 import 'package:test2/features/home/presentation/views/home_view_widgets/widgets/book_image.dart';
 import 'package:test2/features/home/presentation/views/home_view_widgets/widgets/book_rating.dart';
 
 class ListTileItem extends StatelessWidget {
-  const ListTileItem({super.key});
-
+  const ListTileItem({super.key, required this.model});
+  final GeneralBookModel model;
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         ListTile(
           onTap: () {},
-          title: Text('title'),
-          subtitle: Text('subTitle'),
-          leading: BookImage(imagePath: '', borderRadius: .circular(6)),
-          trailing: BookRating(rating: 0, mainAxisSize: .min),
+          title: Text(model.title!),
+          subtitle: Text(model.authors?[0].name ?? 'No author found'),
+          leading: BookImage(
+            imagePath: model.image ?? '',
+            borderRadius: .circular(6),
+          ),
+          trailing: BookRating(
+            rating: model.rating?.average ?? 0,
+            mainAxisSize: .min,
+          ),
         ),
         Divider(thickness: 2, height: 3),
       ],

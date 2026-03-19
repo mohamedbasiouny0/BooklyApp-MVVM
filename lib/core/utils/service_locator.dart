@@ -3,6 +3,7 @@ import 'package:test2/core/network/api_service.dart';
 import 'package:test2/core/network/dio_client.dart';
 import 'package:test2/features/home/data/repos/book_details_repo/book_details_repo_implem.dart';
 import 'package:test2/features/home/data/repos/home_repo/home_repo_implem.dart';
+import 'package:test2/features/search/data/repos/search_repo/search_repo_implem.dart';
 
 final getIt = GetIt.instance;
 void configureDependencies() {
@@ -12,6 +13,10 @@ void configureDependencies() {
   );
   getIt.registerSingleton<BookDetailsRepoImplem>(
     BookDetailsRepoImplem(apiService: getIt<ApiService>()),
+  );
+
+  getIt.registerLazySingleton<SearchRepoImplem>(
+    () => SearchRepoImplem(getIt<DioClient>(), apiService: getIt<ApiService>()),
   );
 
   getIt.registerLazySingleton<HomeRepoImplem>(

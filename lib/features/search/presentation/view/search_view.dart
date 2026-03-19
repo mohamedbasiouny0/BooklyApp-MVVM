@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:test2/core/utils/service_locator.dart';
+import 'package:test2/features/search/data/repos/search_repo/search_repo_implem.dart';
+import 'package:test2/features/search/presentation/manager/cubit/search_books_cubit.dart';
 import 'package:test2/features/search/presentation/view/widgets/search_view_body.dart';
 
 class SearchView extends StatelessWidget {
@@ -6,6 +10,10 @@ class SearchView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: SearchViewBody());
+    return BlocProvider(
+      create: (context) =>
+          SearchBooksCubit(searchRepo: getIt<SearchRepoImplem>()),
+      child: Scaffold(body: SearchViewBody()),
+    );
   }
 }
