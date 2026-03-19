@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:test2/features/search/presentation/manager/cubit/search_books_cubit.dart';
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField({super.key});
@@ -9,7 +11,9 @@ class CustomTextField extends StatelessWidget {
     return TextField(
       cursorColor: Colors.white,
       style: TextStyle(color: Colors.white, fontSize: 20),
-      onSubmitted: (value) {},
+      onSubmitted: (value) {
+        BlocProvider.of<SearchBooksCubit>(context).getSearchBooks(q: value);
+      },
       decoration: InputDecoration(
         suffix: IconButton(
           onPressed: () {},

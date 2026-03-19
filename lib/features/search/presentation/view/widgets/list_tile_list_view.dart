@@ -20,8 +20,10 @@ class ListTileListView extends StatelessWidget {
           );
         } else if (state is SearchBooksFailure) {
           return FailureWidget(errMessage: state.errMessage);
-        } else {
+        } else if (state is SearchBooksLoading) {
           return Center(child: CircularProgressIndicator());
+        } else {
+          return SizedBox();
         }
       },
     );
