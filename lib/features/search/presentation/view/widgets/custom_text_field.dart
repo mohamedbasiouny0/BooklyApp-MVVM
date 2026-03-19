@@ -1,6 +1,9 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:rxdart/rxdart.dart';
 import 'package:test2/features/search/presentation/manager/cubit/search_books_cubit.dart';
 
 class CustomTextField extends StatefulWidget {
@@ -12,11 +15,19 @@ class CustomTextField extends StatefulWidget {
 
 class _CustomTextFieldState extends State<CustomTextField> {
   late final TextEditingController _controller;
+  final PublishSubject<String> subject = PublishSubject<String>();
 
   @override
   void initState() {
     super.initState();
     _controller = TextEditingController();
+    subject.debounceTime(Duration(milliseconds: 600)).distinct().listen((
+      qurey,
+    ) {
+      if (qurey.trim().isNotEmpty) {
+        context.read<SearchBooksCubit>();
+      } else {}
+    });
   }
 
   @override
@@ -31,21 +42,13 @@ class _CustomTextFieldState extends State<CustomTextField> {
       controller: _controller,
       cursorColor: Colors.white,
       style: TextStyle(color: Colors.white, fontSize: 20),
-      onSubmitted: (value) {
-        if (value.trim().isNotEmpty) {
-          BlocProvider.of<SearchBooksCubit>(
-            context,
-          ).getSearchBooks(q: _controller.text);
-        }
+      onChanged: (value) {
+        subject.add(value);
       },
       decoration: InputDecoration(
         suffix: IconButton(
           onPressed: () {
-            if (_controller.text.isNotEmpty) {
-              BlocProvider.of<SearchBooksCubit>(
-                context,
-              ).getSearchBooks(q: _controller.text);
-            }
+            subject.add(_controller.text);
           },
           icon: Icon(CupertinoIcons.search, color: Colors.grey.shade400),
         ),
