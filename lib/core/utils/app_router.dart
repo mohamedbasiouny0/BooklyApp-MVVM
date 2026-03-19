@@ -3,7 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:test2/core/utils/service_locator.dart';
 import 'package:test2/features/home/data/repos/book_details_repo/book_details_repo.dart';
+import 'package:test2/features/home/data/repos/book_details_repo/book_details_repo_implem.dart';
 import 'package:test2/features/home/presentation/manager/get_book_information_cubit/get_book_information_cubit.dart';
+import 'package:test2/features/home/presentation/manager/similar_books_cubit/similar_books_cubit.dart';
 import 'package:test2/features/home/presentation/views/book_details_view.dart';
 import 'package:test2/features/home/presentation/views/home_view.dart';
 import 'package:test2/features/search/presentation/views/search_view.dart';
@@ -33,9 +35,14 @@ sealed class AppRouter {
         builder: (BuildContext context, GoRouterState state) {
           return BlocProvider(
             create: (context) => GetBookInformationCubit(
-              bookDetilasRepo: getIt<BookDetailsRepo>(),
+              bookDetilasRepo: getIt<BookDetailsRepoImplem>(),
             )..getBookDetailsFunction(id: state.extra as int),
-            child: const BookDetailsView(),
+            child: BlocProvider(
+              create: (context) => SimilarBooksCubit(
+                bookDetailsRepo: getIt<BookDetailsRepoImplem>(),
+              )..getSimilarBooks(id: state.extra as int),
+              child: const BookDetailsView(),
+            ),
           );
         },
       ),

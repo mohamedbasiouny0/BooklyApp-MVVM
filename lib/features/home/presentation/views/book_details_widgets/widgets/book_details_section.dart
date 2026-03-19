@@ -47,7 +47,10 @@ class _BookDetailsSectionState extends State<BookDetailsSection> {
                   style: Styles.style18.copyWith(color: Colors.amber),
                 ),
                 Gap(5),
-                BookRating(mainAxisAlignment: .center, rating: 0),
+                BookRating(
+                  mainAxisAlignment: .center,
+                  rating: state.bookDetailsModel.rating?.average ?? 0,
+                ),
                 Gap(10),
                 Column(
                   crossAxisAlignment: .stretch,

@@ -18,7 +18,10 @@ class BookRating extends StatelessWidget {
       children: [
         Icon(Icons.star_rounded, color: Colors.amber),
         Gap(4),
-        Text('4.8', style: Styles.style16.copyWith(color: Colors.amber)),
+        Text(
+          '${((rating * 500).truncate() / 100)}',
+          style: Styles.style16.copyWith(color: Colors.amber),
+        ),
       ],
     );
   }

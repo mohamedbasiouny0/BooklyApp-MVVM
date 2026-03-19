@@ -6,6 +6,7 @@ import 'package:test2/core/utils/app_colors.dart';
 import 'package:test2/core/utils/app_router.dart';
 import 'package:test2/features/home/data/repos/home_repo/home_repo_implem.dart';
 import 'package:test2/features/home/presentation/manager/featured_books_cubit/featured_books_cubit.dart';
+import 'package:test2/features/home/presentation/manager/newest_books_cubit/newest_books_cubit.dart';
 import 'core/utils/service_locator.dart';
 
 void main() {
@@ -28,14 +29,14 @@ class Bookly extends StatelessWidget {
             ),
           )..getFeaturedBooksFunction(),
         ),
-        // BlocProvider(
-        //   create: (context) => NewestBooksCubit(
-        //     homeRepo: HomeRepoImplem(
-        //       getIt<DioClient>(),
-        //       apiService: ApiService(dioClient: getIt<DioClient>()),
-        //     ),
-        //   )..getNewestBooksFunction(),
-        // ),
+        BlocProvider(
+          create: (context) => NewestBooksCubit(
+            homeRepo: HomeRepoImplem(
+              getIt<DioClient>(),
+              apiService: ApiService(dioClient: getIt<DioClient>()),
+            ),
+          )..getNewestBooksFunction(),
+        ),
       ],
       child: MaterialApp.router(
         routerConfig: AppRouter.router,
